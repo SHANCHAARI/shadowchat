@@ -1,7 +1,6 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 
 interface NeonButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -25,14 +24,13 @@ export function NeonButton({
     };
 
     return (
-        <motion.button
-            whileHover={{ scale: disabled ? 1 : 1.02 }}
-            whileTap={{ scale: disabled ? 1 : 0.98 }}
+        <button
             className={cn(
                 'relative px-6 py-3 rounded-md font-mono uppercase tracking-wider',
                 'border-2 transition-all duration-300',
                 'disabled:opacity-50 disabled:cursor-not-allowed',
                 'shadow-[0_0_10px_currentColor] hover:shadow-[0_0_20px_currentColor]',
+                'hover:scale-[1.02] active:scale-[0.98]',
                 variantStyles[variant],
                 className
             )}
@@ -47,6 +45,6 @@ export function NeonButton({
             ) : (
                 children
             )}
-        </motion.button>
+        </button>
     );
 }
